@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-do list</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="myDiv" class="listHeader">
+        <h2>My To-do List</h2>
+        <input type="text" id="taskInput" placeholder="Task title...">
+        <span onclick="newElement()" class="addButton">Add</span>
+    </div>
+    <div id class="list1Header">
+        <h2>To Do</h2>
+    </div>
+    <div class="list2Header">
+        <h2>Done</h2>
+    </div>
+    <ul id="list1" class="unorderedListToDo">
+        <li>Go to the gym</li>
+        <li>Go to the driving lesson</li>
+        <li>Go to the university</li>
+        <li>Work on the internship project</li>
+        <li>Read a scientific article</li>
+    </ul>
+    <ul id="list2" class="unorderedListDone">
+    </ul>
+
+    <script src="app.js" />
+</body>
+</html>
