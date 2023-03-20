@@ -8,7 +8,6 @@ for (i = 0; i < taskList.length; i++) {
     taskList[i].appendChild(span);
 }
 
-// Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
@@ -72,30 +71,27 @@ function newElement() {
         document.getElementById("list1").appendChild(li);
     }
     document.getElementById("taskInput").value = "";
-
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u2716");
     span.className = "close";
     span.appendChild(txt);
     li.appendChild(span);
-
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function() {
             var div = this.parentElement;
             div.style.display = "none";
         }
     }
-
     var i;
     for (i = 0; i < taskList.length; i++) {
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u2714");
-        span.className = "done";
-        span.appendChild(txt);
-        taskList[i].appendChild(span);
+        if (taskList[i].parentElement.className === 'unorderedListToDo') {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u2714");
+            span.className = "done";
+            span.appendChild(txt);
+            taskList[i].appendChild(span);
+        }
     }
-
-    var done = document.getElementsByClassName("done");
     var i;
     for (i = 0; i < done.length; i++) {
         done[i].onclick = function() {
