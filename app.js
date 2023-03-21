@@ -40,11 +40,11 @@ list.addEventListener('click', function(ev) {
     if (ev.target.className === 'done') {
         ev.target.style.display = "none";
         var newLi = document.createElement("li");
-        var task = event.target.parentElement.firstChild.nodeValue;
-        var taskText = document.createTextNode(task);
+        var task = event.target.parentElement.getElementsByClassName("taskTitle");
+        var taskTitle = task.item(0).firstChild.nodeValue
+        var taskText = document.createTextNode(taskTitle);
         newLi.appendChild(taskText);
         document.getElementById("list2").appendChild(newLi);
-
         var span = document.createElement("SPAN");
         var txt = document.createTextNode("\u2716");
         span.className = "close";
@@ -62,15 +62,31 @@ list.addEventListener('click', function(ev) {
 
 function newElement() {
     var li = document.createElement("li");
-    var input = document.getElementById("taskInput").value;
-    var t = document.createTextNode(input);
-    li.appendChild(t);
-    if (input === '') {
-        alert("The task should not be empty!");
-    } else {
-        document.getElementById("list1").appendChild(li);
-    }
+
+    var task = document.createElement("h3");
+    var taskInput = document.getElementById("taskInput").value;
+    var tI = document.createTextNode(taskInput);
+    task.appendChild(tI);
+    li.appendChild(task)
+
+    var description = document.createElement("h4");
+    var descriptionInput = document.getElementById("descriptionInput").value;
+    var dI = document.createTextNode(descriptionInput);
+    description.appendChild(dI);
+    li.appendChild(description)
+
+    var time = document.createElement("div");
+    var timeInput = document.getElementById("timeInput").value;
+    var timeI = document.createTextNode(timeInput);
+    time.appendChild(timeI);
+    li.appendChild(time)
+
+    document.getElementById("list1").appendChild(li);
+
     document.getElementById("taskInput").value = "";
+    document.getElementById("descriptionInput").value = "";
+    document.getElementById("timeInput").value = "";
+
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u2716");
     span.className = "close";
